@@ -759,24 +759,27 @@ export default function KisanSetuApp() {
   return (
     <div className="min-h-screen flex flex-col bg-[#f4f6f0] text-[#1f2421]">
       {/* 1. TOP GOVT & UTILITY BAR (Warm Forest Green) */}
-      <header className="bg-[#2a4732] text-white text-xs sm:text-sm border-b border-[#1b3022]">
-        <div className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1780px] mx-auto px-3 sm:px-6 py-2 flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-            <span className="font-semibold text-emerald-100 text-xs sm:text-sm">
-              Dept. of Agriculture • Govt. of India
+      <header className="bg-[#2a4732] text-white text-xs sm:text-sm border-b border-[#1b3022] shadow-xs">
+        <div className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1780px] mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between gap-3">
+          {/* Left: Official Government Tag */}
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0 h-9">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0 animate-pulse"></span>
+            <span className="font-bold text-emerald-100 text-xs sm:text-sm tracking-wide flex items-center">
+              Dept. of Agriculture <span className="text-emerald-300 mx-1">•</span> Govt. of India
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
-            {/* Officer Login / Status */}
+          {/* Right: Aligned White Utility Boxes */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 h-9">
+            {/* Box 1: Mandi Officer Access */}
             {isOfficerLoggedIn ? (
-              <div className="flex items-center gap-1.5 bg-emerald-900/80 border border-emerald-400/40 px-2.5 py-1 rounded text-xs">
-                <span className="font-bold text-emerald-200">Officer S. K. Verma</span>
+              <div className="h-9 px-3 bg-white text-slate-800 border border-emerald-400/80 rounded-lg shadow-2xs flex items-center gap-2 text-xs font-semibold whitespace-nowrap">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                <span className="text-[#2a4732] font-bold">Officer S. K. Verma</span>
                 <button
                   type="button"
                   onClick={handleOfficerLogout}
-                  className="text-red-200 hover:text-white font-bold ml-1 cursor-pointer underline"
+                  className="text-red-600 hover:text-red-700 font-bold ml-1 cursor-pointer underline text-xs"
                 >
                   Logout
                 </button>
@@ -785,61 +788,49 @@ export default function KisanSetuApp() {
               <button
                 type="button"
                 onClick={() => setOfficerLoginModal(true)}
-                className="text-emerald-100 hover:text-white flex items-center gap-1 bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded cursor-pointer transition text-xs font-semibold"
+                className="h-9 px-3 bg-white hover:bg-emerald-50 text-slate-800 hover:text-[#2a4732] border border-slate-200 rounded-lg shadow-2xs flex items-center gap-1.5 text-xs font-semibold cursor-pointer transition whitespace-nowrap"
               >
-                <Icon name="shield" className="w-3.5 h-3.5 text-emerald-300" />
+                <Icon name="shield" className="w-4 h-4 text-[#4a7c59] shrink-0" />
                 <span>Officer Login</span>
               </button>
             )}
 
-            {/* Helpline / IVR */}
+            {/* Box 2: Toll-Free IVR Helpline */}
             <button
               type="button"
               onClick={() => setShowIvrModal(true)}
-              className="text-yellow-300 hover:underline font-bold flex items-center gap-1.5 text-xs sm:text-sm cursor-pointer"
+              className="h-9 px-3 bg-white hover:bg-amber-50 text-slate-800 hover:text-[#92400e] border border-slate-200 rounded-lg shadow-2xs flex items-center gap-1.5 text-xs font-semibold cursor-pointer transition whitespace-nowrap"
+              title="Toll-Free Kisan IVR Helpline"
             >
-              <Icon name="phone-call" className="w-4 h-4 text-yellow-300" />
-              <span>IVR Helpline: 1800-180-1551</span>
+              <Icon name="phone-call" className="w-4 h-4 text-[#c86d12] shrink-0" />
+              <span>
+                <span className="hidden sm:inline">IVR Helpline: </span>
+                <span className="sm:hidden">IVR: </span>
+                <strong className="text-[#c86d12] font-bold">1800-180-1551</strong>
+              </span>
             </button>
 
-            {/* Top Language Switcher */}
-            <div className="hidden sm:flex items-center bg-black/20 rounded p-0.5 text-xs">
-              <button
-                type="button"
-                onClick={() => setLang("hi")}
-                className={`px-2 py-0.5 rounded cursor-pointer font-bold ${
-                  lang === "hi" ? "bg-white text-[#2a4732]" : "text-white/80"
-                }`}
-              >
-                हिन्दी
-              </button>
-              <button
-                type="button"
-                onClick={() => setLang("or")}
-                className={`px-2 py-0.5 rounded cursor-pointer font-bold ${
-                  lang === "or" ? "bg-white text-[#2a4732]" : "text-white/80"
-                }`}
-              >
-                ଓଡ଼ିଆ
-              </button>
-              <button
-                type="button"
-                onClick={() => setLang("mr")}
-                className={`px-2 py-0.5 rounded cursor-pointer font-bold ${
-                  lang === "mr" ? "bg-white text-[#2a4732]" : "text-white/80"
-                }`}
-              >
-                मराठी
-              </button>
-              <button
-                type="button"
-                onClick={() => setLang("en")}
-                className={`px-2 py-0.5 rounded cursor-pointer font-bold ${
-                  lang === "en" ? "bg-white text-[#2a4732]" : "text-white/80"
-                }`}
-              >
-                EN
-              </button>
+            {/* Box 3: Portal Language Selector */}
+            <div className="hidden sm:flex items-center h-9 bg-white border border-slate-200 rounded-lg shadow-2xs p-1 gap-1 text-xs">
+              {[
+                { code: "hi", label: "हिन्दी" },
+                { code: "or", label: "ଓଡ଼ିଆ" },
+                { code: "mr", label: "मराठी" },
+                { code: "en", label: "EN" },
+              ].map((item) => (
+                <button
+                  key={item.code}
+                  type="button"
+                  onClick={() => setLang(item.code as any)}
+                  className={`h-full px-2.5 rounded-md cursor-pointer font-bold flex items-center justify-center text-xs transition ${
+                    lang === item.code
+                      ? "bg-[#4a7c59] text-white shadow-2xs"
+                      : "text-slate-700 hover:text-slate-950 hover:bg-slate-100"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
           </div>
         </div>
