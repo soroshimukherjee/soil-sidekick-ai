@@ -1164,8 +1164,9 @@ export default function KisanSetuApp() {
                       <span className="text-[10px] text-slate-500 font-mono">Max: 17.0%</span>
                     </div>
 
-                    <div className="flex items-center gap-2">
-                      <div className="relative flex-1">
+                    {/* Direct Data Input */}
+                    <div className="space-y-1">
+                      <div className="relative">
                         <input
                           id="grain-moisture-input"
                           type="number"
@@ -1174,22 +1175,14 @@ export default function KisanSetuApp() {
                           max="40"
                           value={inputMoisture}
                           onChange={(e) => setInputMoisture(e.target.value)}
-                          placeholder="e.g. 16.5"
-                          className="w-full bg-white border border-slate-300 rounded-lg py-1.5 px-3 text-sm font-mono font-black text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-[#4a7c59] shadow-inner"
+                          placeholder="Enter moisture reading (e.g. 15.5)"
+                          className="w-full bg-white border border-slate-300 hover:border-slate-400 focus:border-[#4a7c59] rounded-lg py-2 px-3 pr-10 text-sm font-mono font-bold text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-[#4a7c59]/20 shadow-xs transition"
                         />
-                        <span className="absolute right-3 top-1.5 text-xs font-black text-slate-400 font-mono">%</span>
+                        <span className="absolute right-3 top-2.5 text-xs font-bold text-slate-400 font-mono">%</span>
                       </div>
-
-                      <input
-                        type="range"
-                        min="10"
-                        max="24"
-                        step="0.5"
-                        value={parseFloat(inputMoisture) || 16.5}
-                        onChange={(e) => setInputMoisture(e.target.value)}
-                        className="w-20 sm:w-24 accent-[#4a7c59] h-2 bg-slate-200 rounded cursor-pointer"
-                        title="Fine-tune moisture reading"
-                      />
+                      <p className="text-[10px] text-slate-500 font-medium">
+                        Type the percentage from your grain moisture tester (Official limit: <strong>≤ 17.0%</strong>)
+                      </p>
                     </div>
 
                     {/* Quick Demo Presets */}
