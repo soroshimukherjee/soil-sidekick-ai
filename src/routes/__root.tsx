@@ -77,16 +77,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "KisanSetu • राष्ट्रीय खरीद एवं ई-गेट पास पोर्टल | Govt. of India" },
+      { name: "description", content: "KisanSetu - National Procurement & Mandi E-Gate Pass System with Fair MSP Guarantee & Live Queue Management" },
+      { name: "author", content: "Dept. of Agriculture, Govt. of India" },
+      { property: "og:title", content: "KisanSetu • Mandi E-Gate Pass & MSP Portal" },
+      { property: "og:description", content: "National digital procurement gateway for Indian farmers" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" as const },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,

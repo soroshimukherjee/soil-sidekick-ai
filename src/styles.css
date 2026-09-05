@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&display=swap');
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -5,6 +6,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-serif: "Merriweather", "Roboto Slab", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Roboto", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   --color-ksbg: #f4f6f0;
   --color-kssec: #e6d8c3;
   --color-ksborder: #c2a68c;
@@ -25,15 +28,38 @@
 }
 
 :root {
+  --font-serif: "Merriweather", "Roboto Slab", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Roboto", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   --background: #f4f6f0;
   --foreground: #1f2421;
 }
 
-body {
+/* Base Body / Subtext: Clean Indian Government UI Sans-Serif (Roboto / Open Sans) */
+body,
+button,
+input,
+select,
+textarea,
+.font-sans {
   background-color: #f4f6f0;
   color: #1f2421;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Roboto", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Official Government / Aadhaar Portal Headings: Serif (Merriweather / Roboto Slab / Georgia) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-serif,
+.portal-heading,
+.gov-heading,
+.font-heading {
+  font-family: "Merriweather", "Roboto Slab", Georgia, Cambria, "Times New Roman", Times, serif;
+  letter-spacing: -0.01em;
 }
 
 ::-webkit-scrollbar {

@@ -815,12 +815,12 @@ export default function KisanSetuApp() {
               </button>
               <button
                 type="button"
-                onClick={() => setLang("pa")}
+                onClick={() => setLang("or")}
                 className={`px-1.5 py-0.5 rounded cursor-pointer font-bold ${
-                  lang === "pa" ? "bg-white text-[#2a4732]" : "text-white/80"
+                  lang === "or" ? "bg-white text-[#2a4732]" : "text-white/80"
                 }`}
               >
-                ਪੰਜਾਬੀ
+                ଓଡ଼ିଆ
               </button>
               <button
                 type="button"
