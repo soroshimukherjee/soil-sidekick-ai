@@ -95,7 +95,7 @@ function messageText(message: UIMessage) {
     .trim();
 }
 
-export default function KisanMitraChat() {
+function KisanMitraChatInner() {
   const [open, setOpen] = useState(false);
   const [greeted, setGreeted] = useState(false);
   const [input, setInput] = useState("");
@@ -353,4 +353,18 @@ export default function KisanMitraChat() {
       )}
     </>
   );
+}
+
+export default function KisanMitraChat() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
+  return <KisanMitraChatInner />;
 }
