@@ -1260,11 +1260,11 @@ export default function KisanSetuApp() {
               </div>
 
               {/* CARD 4: HELPLINE & ASSISTANCE */}
-              <div className="ks-card p-4 flex flex-col justify-between space-y-3">
-                <div>
+              <div className="ks-card p-4 sm:p-5 flex flex-col justify-between space-y-3">
+                <div className="space-y-2.5">
                   <div className="flex items-center justify-between border-b border-[#e6d8c3] pb-2.5">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-lg bg-pink-50 text-pink-700 flex items-center justify-center font-bold text-sm">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-pink-50 text-pink-700 flex items-center justify-center font-black text-sm">
                         4
                       </div>
                       <div>
@@ -1275,17 +1275,81 @@ export default function KisanSetuApp() {
                       </div>
                     </div>
                     <span className="text-[10px] font-bold bg-pink-50 text-pink-700 px-2 py-0.5 rounded-full border border-pink-200">
-                      Toll Free
+                      Toll Free • 24×7
                     </span>
                   </div>
 
-                  <div className="mt-3 bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-[10px] sm:text-[11px] text-slate-700 space-y-1">
-                    <div className="font-bold text-slate-900">{t.requiredDocs}:</div>
-                    <div className="grid grid-cols-2 gap-1 font-medium">
-                      <span>1. {t.doc1}</span>
-                      <span>2. {t.doc2}</span>
-                      <span>3. {t.doc3}</span>
-                      <span>4. {t.doc4}</span>
+                  {/* 1. Required Documents Checklist */}
+                  <div className="bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-xs space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-slate-900 flex items-center gap-1.5">
+                        <Icon name="file-text" className="w-3.5 h-3.5 text-[#4a7c59]" />
+                        <span>{t.requiredDocs}:</span>
+                      </span>
+                      <span className="text-[9px] font-bold text-emerald-800 bg-emerald-100/80 px-1.5 py-0.5 rounded">
+                        Mandatory
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-1.5 text-[11px] font-medium text-slate-700">
+                      <div className="flex items-center gap-1.5 bg-white p-1.5 rounded border border-slate-200/80">
+                        <span className="text-emerald-600 font-bold">✓</span>
+                        <span className="truncate">1. {t.doc1}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 bg-white p-1.5 rounded border border-slate-200/80">
+                        <span className="text-emerald-600 font-bold">✓</span>
+                        <span className="truncate">2. {t.doc2}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 bg-white p-1.5 rounded border border-slate-200/80">
+                        <span className="text-emerald-600 font-bold">✓</span>
+                        <span className="truncate">3. {t.doc3}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 bg-white p-1.5 rounded border border-slate-200/80">
+                        <span className="text-emerald-600 font-bold">✓</span>
+                        <span className="truncate">4. {t.doc4}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2. Kisan Call Centre Timings & Support */}
+                  <div className="bg-[#fdf6ee] border border-[#e6d8c3] p-2.5 rounded-lg text-xs space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-slate-900 flex items-center gap-1.5">
+                        <Icon name="phone-call" className="w-3.5 h-3.5 text-[#c86d12]" />
+                        <span>Kisan Call Centre (KCC)</span>
+                      </span>
+                      <span className="font-black text-[#c86d12] text-xs">1800-180-1551</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2 text-[10px] text-slate-600 pt-1 border-t border-[#e6d8c3]/60">
+                      <div>
+                        <span className="text-slate-500">Service Hours: </span>
+                        <strong className="text-slate-800">6 AM – 10 PM</strong>
+                      </div>
+                      <div>
+                        <span className="text-slate-500">Availability: </span>
+                        <strong className="text-slate-800">All 7 Days</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 3. Mandi Entry & Payment Guarantee Standards */}
+                  <div className="bg-emerald-50/70 border border-emerald-200/80 p-2.5 rounded-lg text-xs space-y-1">
+                    <div className="font-bold text-[#2a4732] flex items-center gap-1 text-[11px]">
+                      <span>⚖️</span>
+                      <span>Mandi Acceptance & Payment Standards</span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-1 pt-0.5 text-[10px] text-slate-700">
+                      <div className="bg-white p-1.5 rounded border border-emerald-100 text-center">
+                        <p className="text-slate-500">Moisture</p>
+                        <p className="font-bold text-[#2a4732]">≤ 17.0%</p>
+                      </div>
+                      <div className="bg-white p-1.5 rounded border border-emerald-100 text-center">
+                        <p className="text-slate-500">Dirt / Refuse</p>
+                        <p className="font-bold text-[#2a4732]">≤ 2.0%</p>
+                      </div>
+                      <div className="bg-white p-1.5 rounded border border-emerald-100 text-center">
+                        <p className="text-slate-500">DBT Payout</p>
+                        <p className="font-bold text-[#2a4732]">48–72 Hrs</p>
+                      </div>
                     </div>
                   </div>
                 </div>
