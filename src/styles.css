@@ -27,27 +27,27 @@
   --color-foreground: var(--foreground);
 }
 
-/* Scale root font-size for wide desktop screens and high legibility */
+/* Balanced root font-size for high legibility without oversized scaling */
 html {
-  font-size: 19px;
+  font-size: 16px;
   -webkit-text-size-adjust: 100%;
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 20px;
+    font-size: 16.5px;
   }
 }
 
 @media (min-width: 1280px) {
   html {
-    font-size: 21.5px;
+    font-size: 17px;
   }
 }
 
 @media (min-width: 1600px) {
   html {
-    font-size: 22.5px;
+    font-size: 17.5px;
   }
 }
 
@@ -62,8 +62,8 @@ html {
 body {
   background-color: #f4f6f0;
   color: #1f2421;
-  font-size: 1.05rem;
-  line-height: 1.55;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 body,
@@ -91,48 +91,48 @@ h6,
   letter-spacing: -0.01em;
 }
 
-/* Generous & Highly Legible Typography across all portal elements */
+/* Legible, Balanced Typography across all portal elements */
 .text-\[8px\],
 .text-\[9px\],
 .text-\[10px\] {
-  font-size: 0.85rem !important;
-  line-height: 1.35rem !important;
+  font-size: 0.75rem !important;
+  line-height: 1.1rem !important;
 }
 
 .text-\[11px\],
 .text-xs {
-  font-size: 1rem !important;
-  line-height: 1.5rem !important;
+  font-size: 0.85rem !important;
+  line-height: 1.25rem !important;
 }
 
 .text-sm {
-  font-size: 1.15rem !important;
-  line-height: 1.65rem !important;
+  font-size: 0.95rem !important;
+  line-height: 1.4rem !important;
 }
 
 .text-base {
-  font-size: 1.3rem !important;
-  line-height: 1.8rem !important;
+  font-size: 1.05rem !important;
+  line-height: 1.55rem !important;
 }
 
 .text-lg {
-  font-size: 1.5rem !important;
-  line-height: 2rem !important;
+  font-size: 1.18rem !important;
+  line-height: 1.65rem !important;
 }
 
 .text-xl {
-  font-size: 1.8rem !important;
-  line-height: 2.3rem !important;
+  font-size: 1.35rem !important;
+  line-height: 1.85rem !important;
 }
 
 .text-2xl {
-  font-size: 2.25rem !important;
-  line-height: 2.7rem !important;
+  font-size: 1.65rem !important;
+  line-height: 2.15rem !important;
 }
 
 .text-3xl {
-  font-size: 2.75rem !important;
-  line-height: 3.2rem !important;
+  font-size: 2.1rem !important;
+  line-height: 2.6rem !important;
 }
 
 ::-webkit-scrollbar {

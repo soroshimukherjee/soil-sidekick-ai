@@ -760,20 +760,20 @@ export default function KisanSetuApp() {
     <div className="min-h-screen flex flex-col bg-[#f4f6f0] text-[#1f2421]">
       {/* 1. TOP GOVT & UTILITY BAR (Warm Forest Green) */}
       <header className="bg-[#2a4732] text-white text-xs sm:text-sm border-b border-[#1b3022] shadow-xs">
-        <div className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1780px] mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between gap-3">
+        <div className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1780px] mx-auto px-3 sm:px-6 py-2 flex items-center justify-between gap-3">
           {/* Left: Official Government Tag */}
-          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0 h-9">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0 animate-pulse"></span>
-            <span className="font-bold text-emerald-100 text-xs sm:text-sm tracking-wide flex items-center">
-              Dept. of Agriculture <span className="text-emerald-300 mx-1">•</span> Govt. of India
+          <div className="flex items-center gap-2 shrink-0 h-8">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
+            <span className="font-semibold text-emerald-100 text-xs sm:text-sm tracking-wide flex items-center">
+              Dept. of Agriculture <span className="text-emerald-300 mx-1.5">•</span> Govt. of India
             </span>
           </div>
 
           {/* Right: Aligned White Utility Boxes */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0 h-9">
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0 h-8">
             {/* Box 1: Mandi Officer Access */}
             {isOfficerLoggedIn ? (
-              <div className="h-9 px-3 bg-white text-slate-800 border border-emerald-400/80 rounded-lg shadow-2xs flex items-center gap-2 text-xs font-semibold whitespace-nowrap">
+              <div className="h-8 px-2.5 sm:px-3 bg-white text-slate-800 border border-emerald-400/80 rounded-md shadow-2xs flex items-center gap-2 text-xs font-semibold whitespace-nowrap">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
                 <span className="text-[#2a4732] font-bold">Officer S. K. Verma</span>
                 <button
@@ -788,9 +788,9 @@ export default function KisanSetuApp() {
               <button
                 type="button"
                 onClick={() => setOfficerLoginModal(true)}
-                className="h-9 px-3 bg-white hover:bg-emerald-50 text-slate-800 hover:text-[#2a4732] border border-slate-200 rounded-lg shadow-2xs flex items-center gap-1.5 text-xs font-semibold cursor-pointer transition whitespace-nowrap"
+                className="h-8 px-2.5 sm:px-3 bg-white hover:bg-emerald-50 text-slate-800 hover:text-[#2a4732] border border-slate-200 rounded-md shadow-2xs flex items-center gap-1.5 text-xs font-semibold cursor-pointer transition whitespace-nowrap"
               >
-                <Icon name="shield" className="w-4 h-4 text-[#4a7c59] shrink-0" />
+                <Icon name="shield" className="w-3.5 h-3.5 text-[#4a7c59] shrink-0" />
                 <span>Officer Login</span>
               </button>
             )}
@@ -799,19 +799,44 @@ export default function KisanSetuApp() {
             <button
               type="button"
               onClick={() => setShowIvrModal(true)}
-              className="h-9 px-3 bg-white hover:bg-amber-50 text-slate-800 hover:text-[#92400e] border border-slate-200 rounded-lg shadow-2xs flex items-center gap-1.5 text-xs font-semibold cursor-pointer transition whitespace-nowrap"
+              className="h-8 px-2.5 sm:px-3 bg-white hover:bg-amber-50 text-slate-800 hover:text-[#92400e] border border-slate-200 rounded-md shadow-2xs flex items-center gap-1.5 text-xs font-semibold cursor-pointer transition whitespace-nowrap"
               title="Toll-Free Kisan IVR Helpline"
             >
-              <Icon name="phone-call" className="w-4 h-4 text-[#c86d12] shrink-0" />
+              <Icon name="phone-call" className="w-3.5 h-3.5 text-[#c86d12] shrink-0" />
               <span>
                 <span className="hidden sm:inline">IVR Helpline: </span>
                 <span className="sm:hidden">IVR: </span>
                 <strong className="text-[#c86d12] font-bold">1800-180-1551</strong>
               </span>
             </button>
+          </div>
+        </div>
+      </header>
 
-            {/* Box 3: Portal Language Selector */}
-            <div className="hidden sm:flex items-center h-9 bg-white border border-slate-200 rounded-lg shadow-2xs p-1 gap-1 text-xs">
+      {/* 2. MAIN BRANDING BAR (Warm White with Clean Logo) */}
+      <section className="bg-white border-b border-[#d8ccbe] sticky top-0 z-30 shadow-xs">
+        <div className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1780px] mx-auto px-3 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between gap-3">
+          <div
+            onClick={() => setActiveTab("home")}
+            className="flex items-center gap-2.5 sm:gap-3 cursor-pointer shrink-0"
+          >
+            {/* Clean Circular Logo */}
+            <img
+              src={kisanSetuCircle}
+              alt="KisanSetu Logo"
+              className="w-9 h-9 sm:w-11 sm:h-11 object-contain shrink-0"
+            />
+            <div>
+              <h1 className="text-base sm:text-lg md:text-xl font-black font-serif text-slate-900 leading-tight">
+                {t.portalName}
+              </h1>
+              <p className="text-xs text-slate-600 font-medium line-clamp-1">{t.portalSub}</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            {/* Single Language Selector */}
+            <div className="flex items-center bg-slate-100 rounded-lg border border-slate-200 p-0.5 text-xs sm:text-sm font-medium">
               {[
                 { code: "hi", label: "हिन्दी" },
                 { code: "or", label: "ଓଡ଼ିଆ" },
@@ -822,87 +847,22 @@ export default function KisanSetuApp() {
                   key={item.code}
                   type="button"
                   onClick={() => setLang(item.code as any)}
-                  className={`h-full px-2.5 rounded-md cursor-pointer font-bold flex items-center justify-center text-xs transition ${
+                  className={`px-2.5 py-1 rounded-md cursor-pointer font-bold transition text-xs sm:text-sm ${
                     lang === item.code
                       ? "bg-[#4a7c59] text-white shadow-2xs"
-                      : "text-slate-700 hover:text-slate-950 hover:bg-slate-100"
+                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/60"
                   }`}
                 >
                   {item.label}
                 </button>
               ))}
             </div>
-          </div>
-        </div>
-      </header>
-
-      {/* 2. MAIN BRANDING BAR (Warm White with Clean Logo) */}
-      <section className="bg-white border-b border-[#d8ccbe] sticky top-0 z-30 shadow-xs">
-        <div className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1780px] mx-auto px-3 sm:px-6 py-2.5 sm:py-3.5 flex items-center justify-between gap-2">
-          <div
-            onClick={() => setActiveTab("home")}
-            className="flex items-center gap-2.5 sm:gap-3 cursor-pointer shrink-0"
-          >
-            {/* Clean Circular Logo */}
-            <img
-              src={kisanSetuCircle}
-              alt="KisanSetu Logo"
-              className="w-10 h-10 sm:w-13 sm:h-13 object-contain shrink-0"
-            />
-            <div>
-              <h1 className="text-base sm:text-xl md:text-2xl font-black font-serif text-slate-900 leading-tight">
-                {t.portalName}
-              </h1>
-              <p className="text-xs sm:text-sm text-slate-600 font-medium line-clamp-1">{t.portalSub}</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            {/* Language Pills on Header */}
-            <div className="flex items-center bg-slate-100 rounded-lg border border-slate-200 p-0.5 text-xs sm:text-sm font-medium">
-              <button
-                type="button"
-                onClick={() => setLang("hi")}
-                className={`px-2 sm:px-2.5 py-1 rounded cursor-pointer font-bold ${
-                  lang === "hi" ? "bg-[#4a7c59] text-white" : "text-slate-600 hover:text-slate-900"
-                }`}
-              >
-                हिन्दी
-              </button>
-              <button
-                type="button"
-                onClick={() => setLang("or")}
-                className={`px-2 sm:px-2.5 py-1 rounded cursor-pointer font-bold ${
-                  lang === "or" ? "bg-[#4a7c59] text-white" : "text-slate-600 hover:text-slate-900"
-                }`}
-              >
-                ଓଡ଼ିଆ
-              </button>
-              <button
-                type="button"
-                onClick={() => setLang("mr")}
-                className={`px-2 sm:px-2.5 py-1 rounded cursor-pointer font-bold ${
-                  lang === "mr" ? "bg-[#4a7c59] text-white" : "text-slate-600 hover:text-slate-900"
-                }`}
-              >
-                मराठी
-              </button>
-              <button
-                type="button"
-                onClick={() => setLang("en")}
-                className={`px-2 sm:px-2.5 py-1 rounded cursor-pointer font-bold ${
-                  lang === "en" ? "bg-[#4a7c59] text-white" : "text-slate-600 hover:text-slate-900"
-                }`}
-              >
-                EN
-              </button>
-            </div>
 
             {/* Desktop / Tablet Gate Pass Button */}
             <button
               type="button"
               onClick={() => handleOpenBooking()}
-              className="hidden sm:flex bg-[#4a7c59] hover:bg-[#3b6447] text-white px-4 py-2.5 rounded-lg text-sm font-bold items-center gap-2 shadow-sm transition active:scale-95 cursor-pointer whitespace-nowrap"
+              className="hidden sm:flex bg-[#4a7c59] hover:bg-[#3b6447] text-white px-3.5 py-2 rounded-lg text-xs sm:text-sm font-bold items-center gap-1.5 shadow-2xs transition active:scale-95 cursor-pointer whitespace-nowrap"
             >
               <Icon name="ticket" className="w-4 h-4 text-emerald-200" />
               <span>{t.bookSlotBtn}</span>
@@ -912,11 +872,11 @@ export default function KisanSetuApp() {
 
         {/* Desktop Tabs Bar */}
         <div className="bg-slate-50 border-t border-slate-200 hidden md:block">
-          <div className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1780px] mx-auto px-3 sm:px-6 flex space-x-2 overflow-x-auto text-sm sm:text-base font-semibold">
+          <div className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1780px] mx-auto px-3 sm:px-6 flex space-x-1.5 overflow-x-auto text-xs sm:text-sm font-semibold">
             <button
               type="button"
               onClick={() => setActiveTab("home")}
-              className={`py-3 px-4 border-b-2 transition whitespace-nowrap flex items-center gap-2 cursor-pointer ${
+              className={`py-2.5 px-3.5 border-b-2 transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
                 activeTab === "home"
                   ? "border-[#4a7c59] text-[#4a7c59] font-bold bg-white"
                   : "border-transparent text-slate-600 hover:text-slate-900"
@@ -929,7 +889,7 @@ export default function KisanSetuApp() {
             <button
               type="button"
               onClick={() => setActiveTab("centres")}
-              className={`py-3 px-4 border-b-2 transition whitespace-nowrap flex items-center gap-2 cursor-pointer ${
+              className={`py-2.5 px-3.5 border-b-2 transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
                 activeTab === "centres"
                   ? "border-[#4a7c59] text-[#4a7c59] font-bold bg-white"
                   : "border-transparent text-slate-600 hover:text-slate-900"
@@ -942,7 +902,7 @@ export default function KisanSetuApp() {
             <button
               type="button"
               onClick={() => setActiveTab("my-booking")}
-              className={`py-3 px-4 border-b-2 transition whitespace-nowrap flex items-center gap-2 cursor-pointer ${
+              className={`py-2.5 px-3.5 border-b-2 transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
                 activeTab === "my-booking"
                   ? "border-[#4a7c59] text-[#4a7c59] font-bold bg-white"
                   : "border-transparent text-slate-600 hover:text-slate-900"
@@ -951,14 +911,14 @@ export default function KisanSetuApp() {
               <Icon name="ticket" className="w-4 h-4" />
               <span>{t.myBooking}</span>
               {activeToken && (
-                <span className="w-2.5 h-2.5 rounded-full bg-[#c86d12] animate-ping"></span>
+                <span className="w-2 h-2 rounded-full bg-[#c86d12] animate-ping"></span>
               )}
             </button>
 
             <button
               type="button"
               onClick={() => setActiveTab("msp-rates")}
-              className={`py-3 px-4 border-b-2 transition whitespace-nowrap flex items-center gap-2 cursor-pointer ${
+              className={`py-2.5 px-3.5 border-b-2 transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
                 activeTab === "msp-rates"
                   ? "border-[#4a7c59] text-[#4a7c59] font-bold bg-white"
                   : "border-transparent text-slate-600 hover:text-slate-900"
@@ -973,7 +933,7 @@ export default function KisanSetuApp() {
               <button
                 type="button"
                 onClick={() => setActiveTab("admin")}
-                className={`py-3 px-4 border-b-2 transition whitespace-nowrap flex items-center gap-2 cursor-pointer ${
+                className={`py-2.5 px-3.5 border-b-2 transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
                   activeTab === "admin"
                     ? "border-purple-700 text-purple-800 font-bold bg-white"
                     : "border-transparent text-purple-700 hover:text-purple-900"
@@ -982,7 +942,7 @@ export default function KisanSetuApp() {
                 <Icon name="shield" className="w-4 h-4 text-purple-700" />
                 <span>Mandi Officer</span>
                 {adminBookings.length > 0 && (
-                  <span className="px-2 py-0.5 bg-purple-100 text-purple-800 text-xs rounded-full font-bold">
+                  <span className="px-2 py-0.5 bg-purple-100 text-purple-800 text-[10px] rounded-full font-bold">
                     {adminBookings.length}
                   </span>
                 )}
@@ -992,7 +952,7 @@ export default function KisanSetuApp() {
             <button
               type="button"
               onClick={() => setActiveTab("help")}
-              className={`py-3 px-4 border-b-2 transition whitespace-nowrap flex items-center gap-2 cursor-pointer ${
+              className={`py-2.5 px-3.5 border-b-2 transition whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
                 activeTab === "help"
                   ? "border-[#4a7c59] text-[#4a7c59] font-bold bg-white"
                   : "border-transparent text-slate-600 hover:text-slate-900"
@@ -1006,34 +966,31 @@ export default function KisanSetuApp() {
       </section>
 
       {/* 3. WARM NOTICE MARQUEE */}
-      <section className="bg-[#fdf6ee] border-b border-[#e6d8c3] px-3 sm:px-4 py-2.5 text-xs sm:text-sm">
+      <section className="bg-[#fdf6ee] border-b border-[#e6d8c3] px-3 sm:px-4 py-2 text-xs">
         <div className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1780px] mx-auto px-3 sm:px-6 flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5 overflow-hidden">
-            <span className="text-lg shrink-0">📢</span>
-            <p className="text-slate-800 truncate text-xs sm:text-sm">
+          <div className="flex items-center gap-2 overflow-hidden">
+            <span className="text-base shrink-0">📢</span>
+            <p className="text-slate-800 truncate text-xs">
               <strong className="text-[#c86d12] font-bold">MSP Paddy 2025-26: ₹2,300/Qtl</strong> •{" "}
               {t.dryingNotice}
             </p>
           </div>
-          <span className="text-xs sm:text-sm text-slate-600 font-semibold hidden sm:inline shrink-0">
-            Toll-Free: 1800-180-1551
-          </span>
         </div>
       </section>
 
       {/* 4. MAIN CONTENT CONTAINER */}
-      <main className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1780px] mx-auto px-3 sm:px-6 py-5 sm:py-7 flex-1 space-y-5 sm:space-y-7 pb-24 md:pb-8">
+      <main className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1780px] mx-auto px-3 sm:px-6 py-4 sm:py-5 flex-1 space-y-4 sm:space-y-5 pb-20 md:pb-6">
         {/* TAB: HOME DASHBOARD (The Beloved 4-Box Layout) */}
         {activeTab === "home" && (
-          <div className="space-y-5 sm:space-y-6">
+          <div className="space-y-4 sm:space-y-5">
             {/* 4 Primary Numbered Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-4.5">
               {/* CARD 1: MANDI GATE PASS */}
-              <div className="ks-card p-5 sm:p-6 flex flex-col justify-between space-y-4">
+              <div className="ks-card p-4 sm:p-5 flex flex-col justify-between space-y-3.5">
                 <div>
-                  <div className="flex items-center justify-between border-b border-[#e6d8c3] pb-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#ebf2ee] text-[#4a7c59] flex items-center justify-center font-black text-base">
+                  <div className="flex items-center justify-between border-b border-[#e6d8c3] pb-2.5">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#ebf2ee] text-[#4a7c59] flex items-center justify-center font-black text-sm">
                         1
                       </div>
                       <div>
