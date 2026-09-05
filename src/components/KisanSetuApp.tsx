@@ -965,29 +965,16 @@ export default function KisanSetuApp() {
         </div>
       </section>
 
-      {/* 3. WARM NOTICE MARQUEE */}
-      <section className="bg-[#fdf6ee] border-b border-[#e6d8c3] px-3 sm:px-4 py-2 text-xs">
-        <div className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1780px] mx-auto px-3 sm:px-6 flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2 overflow-hidden">
-            <span className="text-base shrink-0">📢</span>
-            <p className="text-slate-800 truncate text-xs">
-              <strong className="text-[#c86d12] font-bold">MSP Paddy 2025-26: ₹2,300/Qtl</strong> •{" "}
-              {t.dryingNotice}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. MAIN CONTENT CONTAINER */}
-      <main className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1780px] mx-auto px-3 sm:px-6 py-4 sm:py-5 flex-1 space-y-4 sm:space-y-5 pb-20 md:pb-6">
+      {/* 3. MAIN CONTENT CONTAINER */}
+      <main className="w-full max-w-[96%] xl:max-w-[95%] 2xl:max-w-[1780px] mx-auto px-3 sm:px-6 py-3 sm:py-4 flex-1 space-y-3.5 sm:space-y-4 pb-16 md:pb-6">
         {/* TAB: HOME DASHBOARD (The Beloved 4-Box Layout) */}
         {activeTab === "home" && (
-          <div className="space-y-4 sm:space-y-5">
+          <div className="space-y-3.5 sm:space-y-4">
             {/* 4 Primary Numbered Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-4.5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4">
               {/* CARD 1: MANDI GATE PASS */}
-              <div className="ks-card p-4 sm:p-5 flex flex-col justify-between space-y-3.5">
-                <div>
+              <div className="ks-card p-4 sm:p-5 flex flex-col justify-between space-y-3">
+                <div className="space-y-2.5">
                   <div className="flex items-center justify-between border-b border-[#e6d8c3] pb-2.5">
                     <div className="flex items-center gap-2.5">
                       <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#ebf2ee] text-[#4a7c59] flex items-center justify-center font-black text-sm">
@@ -1005,8 +992,8 @@ export default function KisanSetuApp() {
                     </span>
                   </div>
 
-                  {activeToken && (
-                    <div className="mt-3 bg-[#fdf6ee] border border-[#e6d8c3] p-2.5 rounded-lg text-xs space-y-1">
+                  {activeToken ? (
+                    <div className="bg-[#fdf6ee] border border-[#e6d8c3] p-2.5 rounded-lg text-xs space-y-1">
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-slate-900">
                           {t.activeToken}: <strong className="text-[#c86d12]">{activeToken.tokenId}</strong>
@@ -1018,6 +1005,34 @@ export default function KisanSetuApp() {
                       <div className="text-slate-700 truncate text-[11px]">{activeToken.centreName}</div>
                       <div className="text-slate-600 text-[10px]">
                         Slot: <strong>{activeToken.slot}</strong> ({activeToken.date})
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="space-y-2">
+                      <div className="bg-[#ebf2ee] border border-[#4a7c59]/30 p-2.5 rounded-lg text-xs space-y-1">
+                        <div className="flex items-center justify-between font-bold text-[#2a4732]">
+                          <span className="flex items-center gap-1.5">
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span>E-Gate Pass Token Ready</span>
+                          </span>
+                          <span className="text-[10px] bg-white text-[#4a7c59] px-1.5 py-0.5 rounded border border-[#4a7c59]/30 font-semibold">
+                            Express Entry
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-600 leading-snug">
+                          Skip long physical mandi gate queues with advance digital booking & priority weighbridge lane clearance.
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-1.5 text-[10px] text-slate-600">
+                        <div className="bg-slate-50 border border-slate-200 p-1.5 rounded text-center">
+                          <span className="text-slate-500">Mandi Gate Wait: </span>
+                          <strong className="text-emerald-700">Under 15 Mins</strong>
+                        </div>
+                        <div className="bg-slate-50 border border-slate-200 p-1.5 rounded text-center">
+                          <span className="text-slate-500">Token Validity: </span>
+                          <strong className="text-slate-800">24 Hours</strong>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -1045,11 +1060,11 @@ export default function KisanSetuApp() {
               </div>
 
               {/* CARD 2: MSP PRICE & RATES */}
-              <div className="ks-card p-4 flex flex-col justify-between space-y-3">
-                <div>
+              <div className="ks-card p-4 sm:p-5 flex flex-col justify-between space-y-3">
+                <div className="space-y-2.5">
                   <div className="flex items-center justify-between border-b border-[#e6d8c3] pb-2.5">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-lg bg-[#fdf6ee] text-[#c86d12] flex items-center justify-center font-bold text-sm">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#fdf6ee] text-[#c86d12] flex items-center justify-center font-black text-sm">
                         2
                       </div>
                       <div>
@@ -1060,13 +1075,30 @@ export default function KisanSetuApp() {
                       </div>
                     </div>
                     <span className="text-[10px] font-bold bg-[#fdf6ee] text-[#c86d12] px-2 py-0.5 rounded-full border border-amber-200">
-                      ₹2,300/Qtl
+                      Govt. MSP Guaranteed
                     </span>
                   </div>
 
-                  <div className="mt-3 bg-slate-50 border border-slate-200 p-2.5 rounded-lg text-xs flex items-center justify-between">
-                    <span className="font-semibold text-slate-700">100 Quantity (Quintals) =</span>
+                  {/* 100 Qtl Estimate Box */}
+                  <div className="bg-slate-50 border border-slate-200 p-2 rounded-lg text-xs flex items-center justify-between">
+                    <span className="font-semibold text-slate-700">100 Qtl (Common Paddy) =</span>
                     <span className="font-extrabold text-[#c86d12] text-sm">₹2,30,000</span>
+                  </div>
+
+                  {/* 3 Core Crop MSP Benchmarks */}
+                  <div className="grid grid-cols-3 gap-1.5 text-center text-xs">
+                    <div className="bg-[#fdf6ee] border border-[#e6d8c3] p-1.5 rounded-md">
+                      <p className="text-[10px] text-slate-500 font-medium">Paddy (Common)</p>
+                      <p className="text-xs font-black text-[#c86d12]">₹2,300/Qtl</p>
+                    </div>
+                    <div className="bg-[#fdf6ee] border border-[#e6d8c3] p-1.5 rounded-md">
+                      <p className="text-[10px] text-slate-500 font-medium">Paddy (Grade A)</p>
+                      <p className="text-xs font-black text-[#c86d12]">₹2,320/Qtl</p>
+                    </div>
+                    <div className="bg-[#fdf6ee] border border-[#e6d8c3] p-1.5 rounded-md">
+                      <p className="text-[10px] text-slate-500 font-medium">Wheat (Rabi)</p>
+                      <p className="text-xs font-black text-[#c86d12]">₹2,425/Qtl</p>
+                    </div>
                   </div>
                 </div>
 
